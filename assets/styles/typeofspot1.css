@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+}
+
+.left, .right {
+    height: 100vh;
+    border: 1px solid black;
+}
+
+.left {
+    width: 30%;
+}
+
+.right {
+    width: 70%;
+}
