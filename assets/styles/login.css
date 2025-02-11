@@ -2,7 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+JP:wght@200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  min-height: 100vh;
+  background-image: url(../images/bg1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .grid {
   display: grid;
@@ -13,27 +22,6 @@
 /* Grid item */
 .grid-item {
   grid-column: span 3;
-}
-
-/* Small screens (mobile) */
-@media only screen and (max-width: 768px) {
-  .grid-item {
-    grid-column: span 6;
-  }
-}
-
-/* Medium screens (tablet) */
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-  .grid-item {
-    grid-column: span 4;
-  }
-}
-
-/* Large screens (desktop) */
-@media only screen and (min-width: 1025px) {
-  .grid-item {
-    grid-column: span 3;
-  }
 }
 
 .image {
@@ -50,13 +38,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: rgb(64, 94, 94);
-}
+
 
 .wrapper{
   width: 420px;
@@ -64,12 +46,16 @@ body {
   border: 2px solid rgba(255, 255, 255, .2);
   color: beige;
   border-radius: 10px;
-  padding: 10px 20px;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, .2);
+  height: max-content;
 }
 
 .wrapper h1 {
-  font-size: 36px;
-  text-align: center;
+  font-size: 2rem;
+  text-align: left;
 }
 
 .wrapper .input-box {
@@ -126,16 +112,6 @@ body {
   text-decoration: underline;
 }
 
-.wrapper{
-  width: 420px;
-  background: transparent;
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, .2);
-  color: beige;
-  border-radius: 10px;
-  padding: 10px 20px;
-}
-
 .wrapper .register-link {
   font-size: 14.5px;
   text-align: center;
@@ -151,6 +127,7 @@ body {
 .register-link p a:hover {
   text-decoration: underline;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -160,76 +137,32 @@ body {
   text-align: left;
 }
 
-nav {
-display: flex;
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-z-index: 1;
-background: linear-gradient(to left, rgba(0, 0, 0, 0.253), rgba(255, 255, 255, 0.213));
-backdrop-filter: blur(2px);
-height: 15%;
-justify-content:space-between;
-align-items: center;
-padding: 0 50px;
+.button {
+  width: 100%;
+  padding: 7px 0px;
+  background-color: #fff; 
+  border: none;
+  color: #333;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 0px;
+  cursor: pointer;
+  position: relative;
+  align-items: center;
+  border-radius: 40px;
+  font-family: "Poppins", sans-serif;
+  border-bottom: none;
+  text-align: center;
+  margin-top: -20px;
 }
-
-.leftsection {
-display: flex;
-align-items: center;
-font-family: "Poppins", sans serif;
-}
-
-h3 {
-margin-top: 5px;
-margin-left: 5px;
-color: black;
-text-shadow: 0.1px 0.1px 0.1px #fff;
-}
-
-.logo {
-width: 70px;
-}
-
-ul {
-display: flex;
-column-gap: 50px;
-}
-
-.nav-items {
-  color: white;
-  font-family: "Poppins", sans serif;
-  font-weight: 550;
-  font-size: 1.1em;
-  padding-bottom: 10px;
-  border-bottom: 3px solid transparent;
   
-  transition: all ease 0.5s;
-  }
-  
-  .nav-items:hover {
-  border-bottom: 3px solid rgb(230, 230, 230);
-  color: rgb(227, 227, 227);
-  }
 
-  .button {
-    width: 100%;
-    padding: 7px 0px;
-    background-color: #fff; 
-    border: none;
-    color: #333;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-left: 0px;
-    cursor: pointer;
-    position: relative;
-    align-items: center;
-    border-radius: 40px;
-    font-family: "Poppins", sans-serif;
-    border-bottom: none;
-    text-align: center;
-    margin-top: -20px;
-  }
   
+/* Small screens (mobile) */
+@media (max-width: 440px) {
+  .wrapper {
+    width: 20rem;
+    align-content: center;
+  }
+}

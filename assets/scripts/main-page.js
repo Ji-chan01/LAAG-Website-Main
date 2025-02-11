@@ -1,5 +1,4 @@
-const threeDots = document.querySelector(".three-dots");
-const ul = document.querySelector("nav ul");
+
 const previous = document.querySelector(".prev");
 const next = document.querySelector(".next");
 
@@ -25,8 +24,4 @@ window.addEventListener('keydown', (event) => {
     if (event.key === "ArrowLeft") previousBtn();
     clearInterval(intervalID);
     intervalID = setInterval(nextBtn, 6500);
-})
-
-threeDots.addEventListener('click', () => {
-    ul.classList.toggle('active');
 })
