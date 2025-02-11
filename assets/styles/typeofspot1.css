@@ -1,18 +1,22 @@
+@import url('./variables.css');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--light-gray);
 }
 
 main {
     display: flex;
+    background: var(--smoky-black);
 }
 
 .left, .right {
     height: 100vh;
-    border: 1px solid black;
 }
 
 .left {
@@ -21,4 +25,227 @@ main {
 
 .right {
     width: 70%;
+}
+
+.header {
+    display: flex;
+    padding: 0 1rem;
+    align-items: center;
+    gap: 1rem;
+    background: var(--smoky-black-a);
+    backdrop-filter: blur(2px);
+    height: 15%;
+}
+
+.left .header img {
+    width: 13%;
+}
+
+.left .header .search-bar-cont {
+    border: 1px solid #fff;
+    padding: 0.6rem 0.8rem;
+    display: flex;
+    align-items: center;
+    border-radius: 1.5rem;
+    gap: 0.5rem;
+}
+
+.left .header .search-bar-cont i {
+    color: #fff;
+    font-size: 0.8rem;
+}
+
+.left .header .search-bar-cont input[type="search"] {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: lightgrey;
+}
+
+.left .nav-links {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.nav-item {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 4.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    background: var(--eerie-black);
+    font-size: 1.05rem;
+}
+  
+.nav-item span {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.8s ease, opacity 0.8s ease, font-size 0.1s ease;
+    text-align: left;
+}
+
+.text1 {
+    left: 5%;
+    opacity: 1;
+}
+
+.text2 {
+    left: -70%;
+    opacity: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+}
+
+.nav-item.clicked .text1 {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.nav-item.clicked .text2 {
+    transform: translateX(75%);
+    opacity: 1;
+    
+    top:35%;
+}
+  
+.right {
+    position: relative;
+    overflow: hidden;
+}
+
+.right .header {
+    position: absolute;
+    z-index: 100;
+    background: transparent;
+    left: 0;
+    right: 0;
+    background: var(--smoky-black-a);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0rem 1rem var(--smoky-black);
+}
+
+.right .header h1 {
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+.right .img-cont {
+    background: transparent;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.right .img-cont img {
+    height: 100%;
+    width: 100%;
+}
+
+.right .section {
+    width: 50%;
+    position: absolute;
+    bottom: -50px;
+    margin: 1rem;
+    padding: 1rem;
+    background: var(--smoky-black-a);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.right .section.active {
+    opacity: 0.1;
+    bottom: 0;
+}
+
+.right .section.active:hover {
+    opacity: 1;
+}
+
+.right .section.active:hover {
+    opacity: 1;
+}
+
+.right .section h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.right .img-cont .section i {
+    position: absolute;
+    left: 0;
+    top: -2.5rem;
+    color: var(--smoky-black);
+    padding: 0.5rem;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.right .img-cont i:hover {
+    opacity: 0.9;
+}
+
+.right .section.active:hover + .gallery{
+    opacity: 1;
+}
+
+.right .section p {
+    color: #fff;
+    width: 100%;
+    font-size: 0.8rem;
+    line-height: 1.7rem;
+    letter-spacing: 1px;
+}
+
+.right .img-cont .gallery {
+    position: absolute;
+    right: -70px;
+    top: 25%;
+    width: 30%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    gap: 1rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.right .img-cont .gallery.active {
+    right: 5%;
+    opacity: 0.2;
+}
+
+.right .img-cont .gallery img {
+    width: 100%;
+    max-height: max-content;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+.right .img-cont .gallery:hover {
+    opacity: 1;
+}
+
+.right .img-cont .gallery img:hover {
+    box-shadow: 0 0 0.5rem var(--smoky-black);
 }

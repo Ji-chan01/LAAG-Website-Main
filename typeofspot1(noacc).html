@@ -6,16 +6,154 @@
   <title>LAAG.com</title>
   
   <link rel="stylesheet" href="./assets/styles/typeofspot1.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
   <main>
     <section class="left">
+      <header class="header">
+        <img src="./assets/images/logo.png" alt="">
+        <div class="search-bar-cont">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input class="search-bar" type="search" placeholder="Search...">
+        </div>
+      </header>
 
+      <ul class="nav-links">
+        <li>
+          <button data-type="CULTURAL" class="nav-item">
+            <span class="text1">CULTURAL</span>
+            <span class="text2">BUNTOD REEF MARINE SANCTUARY AND SANDBAR</span>
+          </button>
+        </li>
+        <li>
+          <button data-type="COASTAL LANDSCAPE" class="nav-item">
+            <span class="text1">COASTAL LANDSCAPE</span>
+            <span class="text2">7AR GOLDEN BEACH RESORT</span>
+          </button>
+        </li>
+        <li>
+          <button data-type="MARINE PARKS" class="nav-item">
+            <span class="text1">MARINE PARKS</span>
+            <span class="text2">TEXT</span>
+          </button>
+        </li>
+        <li>
+          <button data-type="HISTORICAL" class="nav-item">
+            <span class="text1">HISTORICAL</span>
+            <span class="text2">TEXT</span>
+          </button>
+        </li>
+        <li>
+          <button data-type="RANCH AND FARMS" class="nav-item">
+            <span class="text1">RANCH AND FARMS</span>
+            <span class="text2">TEXT</span>
+          </button>
+        </li>
+        <li>
+          <button data-type="PARKS" class="nav-item">
+            <span class="text1">PARKS</span>
+            <span class="text2">TEXT</span></button>
+          </button>
+        </li>
+      </ul>
     </section>
   
     <section class="right">
-  
+      <header class="header">
+        <h1>MASBATE CITY</h1>
+      </header>
+      <div class="img-cont">
+        <img id="backPic" src="./assets/Backgrounds/MASBATE CITY BOI.jpg" alt="">
+        
+        <section id="description" class="section">
+          <a href="https://maps.app.goo.gl/Qq2pSGbCWxDxjTNz6" target="_blank"><i class="fa-solid fa-location-dot"></i></a>
+          <h1>BUNTOD REEF MARINE SANCTUARY AND SANDBAR</h1>
+          <p>A 251-hectare Marine Protected Area (MPA) located off the waters of Masbate City,
+            it is best known for its abundance of helmet shells,spowdery white 1-hectare sandbar
+            as well as a healthy numberof mangroves at the far end of the sandbar. The sanctuary
+            serves as a barrier island protecting the main land from wave attack, storm surge, tidal
+            range,and sediment transport. Part of island hopping package, swimming, snorkeling, scuba
+            diving, sunset watching, beach combing, and water sport activities</p>
+        </section>
+
+        <div id="desGallery" class="gallery">
+          <img src="./assets/Backgrounds/photo1.webp">
+          <img src="./assets/Backgrounds/photo2.webp">
+        </div>
+      </div>
     </section>
   </main>
+
+  <script>
+    // const button = document.querySelectorAll(".nav-item");
+
+    // button.forEach(b => {
+    //   b.addEventListener("click", () => {
+    //     if (b.dataset.type === "COASTAL LANDSCAPE") {
+    //       button.forEach(b => {
+    //         if (b.dataset.type !== "COASTAL LANDSCAPE" && b.dataset.type !== "CULTURAL") {
+    //           b.remove();
+    //         } else {
+    //           b.dataset.type = b.dataset.type === "COASTAL LANDSCAPE" ?
+    //           "7AR GOLDEN BEACH RESORT" : "BUNTOD REEF MARINE SANCTUARY AND SANDBAR";
+    //         }
+    //         b.addEventListener("click", () => {
+    //           console.log(b.dataset.type);
+    //         })
+    //         b.classList.add("clicked")
+    //       });
+    //     }
+    //   });
+    // });
+    const img = document.getElementById("backPic");
+    const buttons = document.querySelectorAll(".nav-item");
+    const description = document.getElementById("description");
+    const gallery = document.getElementById("desGallery");
+
+    buttons.forEach(b => {
+      b.addEventListener("click", () => {
+        if (b.dataset.type === "COASTAL LANDSCAPE") {
+          let toRemove = [];
+
+          buttons.forEach(btn => {
+            if (btn.dataset.type !== "COASTAL LANDSCAPE" && btn.dataset.type !== "CULTURAL") {
+              toRemove.push(btn); // Store elements for removal
+            } else {
+              // Change dataset type based on condition
+              btn.dataset.type = btn.dataset.type === "COASTAL LANDSCAPE" 
+                ? "7AR GOLDEN BEACH RESORT" 
+                : "BUNTOD REEF MARINE SANCTUARY AND SANDBAR";
+
+              btn.classList.add("clicked");
+
+              // Ensure the event listener is only added once
+              if (!btn.hasAttribute("listener")) {
+                
+                btn.addEventListener("click", () => {
+                  description.classList.remove("active");
+                  gallery.classList.remove("active");
+                  if (btn.dataset.type === "BUNTOD REEF MARINE SANCTUARY AND SANDBAR") {
+                    img.src = "./assets/Backgrounds/buntod2-masbatecity.png";
+                    description.classList.add("active");
+                    gallery.classList.add("active");
+                  } else if (btn.dataset.type === "7AR GOLDEN BEACH RESORT") {
+                    img.src = "./assets/Backgrounds/7ar-masbatecity.jpg";
+                    // description.classList.add("active");
+                  }
+                });
+                btn.setAttribute("listener", "true"); // Prevent duplicate listeners
+              }
+            }
+          });
+
+          // Now safely remove buttons outside the loop
+          toRemove.forEach(btn => btn.remove());
+        }
+      });
+    });
+
+  </script>
 </body>
 </html>
