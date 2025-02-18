@@ -1,60 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 10px;
-}
-
-h1{
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-    color: #fff;
-    font-size: 75px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-  top: 200px;
-  transform: translateX(200%) translateY(-50%);
-}
-
-h2{
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-    color: #fff;
-    font-size: 50px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-  top: 280px;
-  transform: translateX(175%) translateY(-50%);
-}
-
-/* Grid item */
-.grid-item {
-  grid-column: span 3;
-}
-
-/* Small screens (mobile) */
-@media only screen and (max-width: 768px) {
-  .grid-item {
-    grid-column: span 6;
-  }
-}
-
-/* Medium screens (tablet) */
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-  .grid-item {
-    grid-column: span 4;
-  }
-}
-
-/* Large screens (desktop) */
-@media only screen and (min-width: 1025px) {
-  .grid-item {
-    grid-column: span 3;
-  }
-}
+@import url(./variables.css);
 
 * {
   margin: 0;
@@ -66,192 +11,58 @@ h2{
   font-family: "Poppins", sans-serif;
 }
 
-nav {
+body {
+  background-image: url(../images/mantabowl.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.container {
   display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.253), rgba(255, 255, 255, 0.213));
-  backdrop-filter: blur(2px);
-  height: 15%;
-  justify-content:space-between;
-  align-items: center;
-  padding: 0 50px;
+  flex-direction: column;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 0.2rem var(--smoky-black);
+  position: absolute;
+  top: 55%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  width: 23rem;
 }
 
-.leftsection {
+.container .checkboxs {
   display: flex;
-  align-items: center;
-  font-family: "Poppins", sans serif;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: space-between;
 }
 
 
-h3 {
-  margin-top: 5px;
-  margin-left: 5px;
-  color: black;
-  text-shadow: 0.1px 0.1px 0.1px #fff;
-}
-
-.logo {
-  width: 70px;
-}
-
-ul {
+.container .buttons {
   display: flex;
-  column-gap: 50px;
-
+  justify-content: space-between;
 }
 
-.nav-items {
-  color: white;
-  font-family: "Poppins", sans serif;
+.container a {
+  background: #fff;
+  color: var(--smoky-black);
   font-weight: 550;
-  font-size: 1.1em;
-  padding-bottom: 10px;
-  border-bottom: 3px solid transparent;
-  
-  transition: all ease 0.5s;
-  }
-  
-  .nav-items:hover {
-  border-bottom: 3px solid rgb(230, 230, 230);
-  color: rgb(227, 227, 227);
-  }
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  max-width: max-content;
+  padding: 0.8rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.15s ease-in-out;
+}
 
+.container a:hover {
+  box-shadow: 0 0 0.5rem var(--smoky-black);
+}
 
-
+@media (max-width: 390px) {
   .container {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    background-color: #003c4f; /* light gray background */
-    border-radius: 50px; /* rounded edges */
-    padding: 20px; /* add some padding */
-    width: 40%; /* set the width */
-    height: 30%;
-    position: absolute; /* position the container absolutely */
-    top: 60%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); /* adjust the position to center it */
-  }
-  
-
-.button {
-    /* Style the buttons */
-    background-color: transparent;
-    color: #fff;
-    padding: 30px 40px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: underline; /* Remove the default link underline */
-    text-align: center;
-    font-size: 40px;
-    font-family: "Margarine", sans-serif;
-    width: 700px;
-  }
-  
-  .top-button {
-    /* Position the top button */
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .bottom-button {
-    /* Position the bottom button */
-    position: absolute;
-    bottom: 20%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-  }
-
-
-@media (max-width: 768px) {
-  footer .left-button, footer .right-button {
-    font-size: 12px;
-    padding: 5px 10px;
-    cursor: pointer;
+    width: 20rem;
   }
 }
-
-@media (max-width: 480px) {
-  footer .left-button, footer .right-button {
-    font-size: 10px;
-    padding: 2px 5px;
-    cursor: pointer;
-  }
-}
-
-input[type="checkbox"] {
-    transform: scale(2); /* increase checkbox size */
-    cursor: pointer;
-    background-color: transparent;
-  }
-
-  .checkbox-group {
-    padding: 40px; /* increase padding */
-    border: 2px solid #ccc; /* increase border width */
-    border-radius: 20px; /* increase border radius */
-    border: none;
-  }
-
-  input {
-    margin-right: 10px;
-  }
-
-  .button-1 {
-    width: 100px;
-    height: 50px;
-    background-color: #003c4f; 
-    border: none;
-    color: #fff;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 22px;
-    margin-left: 100px;
-    cursor: pointer;
-    position: relative;
-    align-items: center;
-    border-radius: 10px;
-    font-family: "Poppins", sans-serif;
-    top: 650px;
-    font-weight: 700;
-    }
-    
-    .button-1-container button:hover {
-      background-color: #1b0093; /* Darker orange on hover */
-      color: white;
-    }
-
-
-.button-2 {
-    width: 100px;
-    height: 50px;
-    background-color: #003c4f; 
-    border: none;
-    color: #fff;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 22px;
-    margin-left: 1350px;
-    cursor: pointer;
-    position: relative;
-    align-items: center;
-    border-radius: 10px;
-    font-family: "Poppins", sans-serif;
-    top: 600px;
-    font-weight: 700;
-  }
-  
-  .button-2-container button:hover {
-    background-color: #00303f; 
-  }

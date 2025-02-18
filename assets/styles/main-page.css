@@ -13,12 +13,16 @@ body{
   overflow: hidden;
 }
 
-.container{
+.home{
   background: #f5f5f5;
   box-shadow: 0 30px 50px #dbdbdb;
 }
 
-.container .item{
+.home.active {
+  display: none;
+}
+
+.home .item{
   width: 200px;
   height: 300px;
   position: absolute;
