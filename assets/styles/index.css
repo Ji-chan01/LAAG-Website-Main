@@ -27,6 +27,8 @@ body{
   background-size: cover;
   display: inline-block;
   transition: 0.5s;
+  height: 50%;
+  box-shadow: 0 0 0.5rem rgb(10,10,10);
 }
 
 .item:nth-child(1),
