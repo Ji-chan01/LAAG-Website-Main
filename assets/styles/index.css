@@ -27,7 +27,7 @@ body{
   background-size: cover;
   display: inline-block;
   transition: 0.5s;
-  height: 50%;
+  height: 20rem;
   box-shadow: 0 0 0.5rem rgb(10,10,10);
 }
 
